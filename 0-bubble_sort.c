@@ -1,5 +1,18 @@
 #include "sort.h"
 /**
+ * swappa - Swaps two ints in an array.
+ * @a: first int
+ * @b: second int
+ */
+void swappa(int *a, int *b)
+{
+        int tmp;
+
+        tmp = *a;
+        *a = *b;
+        *b = tmp;
+}
+/**
   * bubble_sort - sorts array using bubble sort algorithm
   * @array: array to sort
   * @size: size of the array
@@ -8,8 +21,8 @@
   */
 void bubble_sort(int *array, size_t size)
 {
-	size_t i = 0;
-	int tmp = 0, swap = 1;
+	size_t i = 0, end = size;
+	int swap = 1;
 
 	if (array == NULL || size < 2)
 		return;
@@ -17,19 +30,16 @@ void bubble_sort(int *array, size_t size)
 	while (swap == 1)
 	{
 		swap = 0;
-		i = 0;
 
-		while (i < size)
+		for (i = 0; i < end - 1; i++)
 		{
 			if (array[i] > array[i + 1])
 			{
-				tmp = array[i];
-				array[i] = array[i + 1];
-				array[i + 1] = tmp;
+				swappa(array + i, array + i + 1);
 				swap = 1;
 				print_array(array, size);
 			}
-			++i;
 		}
+		end--;
 	}
 }
