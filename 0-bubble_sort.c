@@ -6,11 +6,11 @@
  */
 void swappa(int *a, int *b)
 {
-        int tmp;
+	int tmp;
 
-        tmp = *a;
-        *a = *b;
-        *b = tmp;
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }
 /**
   * bubble_sort - sorts array using bubble sort algorithm
