@@ -43,7 +43,7 @@ void insertion_sort_list(listint_t **list)
 void swap_list(listint_t *pn, listint_t *temp, listint_t *nxt, listint_t **h)
 {
 
-	while (pn && temp->n < pn->n)
+	while (pn && pn->n > temp->n)
 	{
 		if (nxt)
 			nxt->prev = pn;
