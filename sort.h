@@ -27,4 +27,5 @@ void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 void swap_list(listint_t *std, listint_t *cur, listint_t *nxt, listint_t **list);
 
+
 #endif

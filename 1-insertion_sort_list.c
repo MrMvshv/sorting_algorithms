@@ -33,28 +33,31 @@ void insertion_sort_list(listint_t **list)
 }
 
 /**
- * swap_list - swaps two nodes in a doubly linked list
+ * swap_list - swaps the position of two nodes in a linked list
  *
- * @std: pointer to end of sorted list
- * @curnt: pointer to node that is to be shifted
+ * @pn: pointer to end of sorted list
+ * @temp: pointer to node that is to be shifted
  * @nxt: pointer to first node of unsorted list
+ * @h: head of doubly linked list
  */
-void swap_list(listint_t *std, listint_t *cur, listint_t *nxt, listint_t **list)
+void swap_list(listint_t *pn, listint_t *temp, listint_t *nxt, listint_t **h)
 {
-	while (std->n > cur->n && std)
+
+	while (pn && temp->n < pn->n)
 	{
 		if (nxt)
-			nxt->prev = std;
-		cur->next = std;
-		cur->prev = std->prev;
-		if (std->prev)
-			(std->prev)->next = cur;
-		std->prev = cur;
-		std->next = nxt;
+			nxt->prev = pn;
+		temp->next = pn;
+		temp->prev = pn->prev;
+		if (pn->prev)
+			(pn->prev)->next = temp;
+		pn->prev = temp;
+		pn->next = nxt;
+		nxt = pn;
+		pn = temp->prev;
 
-		if ((*list)->prev) /*move head to new node*/
-			*list = (*list)->prev;
-		
-		print_list(*list);	
+		if ((*h)->prev) /*move head to new node*/
+			*h = (*h)->prev;
+		print_list(*h);
 	}
 }
